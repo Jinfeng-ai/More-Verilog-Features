@@ -1,0 +1,15 @@
+# More-Verilog-Features
+
+
+question:
+通过不完善的通道传输数据时，奇偶校验通常用作检测错误的简单方法。创建一个电路，该电路将计算8位字节的
+奇偶校验位（这将在字节中添加第九位）。我们将使用“偶数”奇偶校验，其中奇偶校验位只是所有8个数据位的XOR。
+
+module top_module (
+    input [7:0] in,
+    output parity); 
+
+    //assign parity = in[0] ^ in[1] ^ in[2] ^ in[3] ^ in[4] ^ in[5] ^ in[6] ^ in[7];
+    
+    assign parity = ^ in[7:0];
+endmodule
