@@ -1,0 +1,44 @@
+# More-Verilog-Features
+
+我敲的第一版：
+module top_module( 
+    input [254:0] in,
+    output reg [7:0] out );
+    
+    integer i;
+    always @ (*)begin
+        for (i=0; i<256; i=i+1)
+            out[i] = in[i+1]
+    end
+
+endmodule
+第二版：
+module top_module( 
+    input [254:0] in,
+    output reg [7:0] out );
+    
+    integer i;
+    always @ (*)begin
+        for (i=0; i<256; i=i+1)
+            out[i] = in[i+1]
+    end
+
+endmodule
+
+
+参考代码：
+module top_module( 
+    input [254:0] in,
+    output reg [7:0] out );
+    
+    integer i;
+    always @ (*)begin
+        out = 0;
+        for (i=0; i<255; i=i+1)
+            out = out + in[i];
+    end
+
+endmodule
+
+总结：
+输出out,没有想到会从0开始，不知道需要加这么一句话，很好的格式。
